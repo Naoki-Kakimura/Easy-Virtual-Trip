@@ -1,1 +1,9 @@
 <%= @city_name%>
+<% @image_url.each do |url|%>
+  <%=image_tag url%>
+<%end%>
+<%=form_with model:@plan, local:true do |f|%>
+  <%=f.hidden_field :name, :value => @city_name%>
+  <%=f.submit "#{@city_name}で決定"%>
+<%end%>
+<%= link_to "もう一度選ぶ", new_plan_path %>
