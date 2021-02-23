@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_15_103647) do
+ActiveRecord::Schema.define(version: 2021_02_18_054245) do
 
   create_table "plans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
@@ -18,4 +18,24 @@ ActiveRecord::Schema.define(version: 2021_02_15_103647) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "visit_places", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "prefecture"
+    t.string "municipality"
+    t.bigint "plan_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["plan_id"], name: "index_visit_places_on_plan_id"
+  end
+
+  create_table "visit_points", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.float "latitude"
+    t.float "longitude"
+    t.bigint "visit_place_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["visit_place_id"], name: "index_visit_points_on_visit_place_id"
+  end
+
+  add_foreign_key "visit_places", "plans"
+  add_foreign_key "visit_points", "visit_places"
 end
