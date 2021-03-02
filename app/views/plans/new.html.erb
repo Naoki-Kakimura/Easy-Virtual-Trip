@@ -2,7 +2,7 @@
 <% @image_url.each do |url|%>
   <%=image_tag url%>
 <%end%>
-<%=form_with model:@plan, local:true do |f|%>
+<%=form_with model:@plan do |f|%>
   <%=f.hidden_field :name, :value => @city_name%>
   <%=f.submit "#{@city_name}で決定"%>
 <%end%>

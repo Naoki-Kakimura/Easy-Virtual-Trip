@@ -10,13 +10,25 @@ class PlansController < ApplicationController
       search_trip
     end
     @plan = Plan.new
+    flash.keep[:prefecture] = @prefecture
+    flash.keep[:municipality] = @city_name
   end
   def create
-    Plan.create(plan_params)
+    plan = Plan.create(plan_params)
+    visit_place = VisitPlace.create(prefecture: flash[:prefecture], municipality: flash[:municipality],plan_id: plan.id)
+    if visit_place.valid?
+      flash.keep[:address] = visit_place
+      redirect_to controller: :maps, action: :new
+    end
   end
   private
   def search_trip
     prefecture_num = SecureRandom.random_number(47)
+    hoge = Prefecture.new
+    huga = hoge.getName
+    prefecture_hash = huga[prefecture_num-1]
+    @prefecture = prefecture_hash[:name]
+    
     params =URI.encode_www_form({prefCode:prefecture_num})
     uri = URI.parse("https://opendata.resas-portal.go.jp/api/v1/cities?#{params}")
     req = Net::HTTP::Get.new(uri.request_uri)
