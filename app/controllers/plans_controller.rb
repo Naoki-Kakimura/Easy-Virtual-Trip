@@ -18,6 +18,7 @@ class PlansController < ApplicationController
     visit_place = VisitPlace.create(prefecture: flash[:prefecture], municipality: flash[:municipality],plan_id: plan.id)
     if visit_place.valid?
       flash.keep[:address] = visit_place
+      flash.keep[:visit_place_id] = visit_place.id
       redirect_to controller: :maps, action: :new
     end
   end
