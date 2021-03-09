@@ -1,11 +1,16 @@
-
-<% @placese.each do |item| %>
-  <div>
-    <div>
-      <img src=<%=item[0]%>>
+<%= form_with model:@visit_point,url:maps_path, local: true do |f|%>
+  <%=f.hidden_field :visit_place_id, :value => @visit_place_id%>
+  <% @placese.each_with_index do |item,i| %>
+    <div class=<%=i%>>
+      <div>
+        <img src=<%=item[0]%>>
+      </div>
+      <div>
+        <h2><%= item[1]%></h2>
+      </div>
+      <p><%= item[2]%></p>
+      <input type="checkbox" name=<%=i%> value="<%=item[2]%>"> 
     </div>
-    <div>
-      <h2><%= item[1]%></h2>
-    </div>
-  </div>
-<% end %>%>
+  <% end %>
+  <%=f.submit "決定"%>
+<% end%>
