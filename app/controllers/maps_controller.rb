@@ -1,4 +1,6 @@
 class MapsController < ApplicationController
+  require 'bigdecimal'
+  require 'bigdecimal/util' 
   def new
     @visit_place_id = flash[:visit_place_id]
     visit_placese = flash[:address]
@@ -68,8 +70,8 @@ class MapsController < ApplicationController
     visit_points = visit_point_params
     visit_points.each_with_index do |point,i|
       point_arr = point.split(",")
-      visit_lat = point_arr[0].delete("[").to_f
-      visit_lng = point_arr[1].delete("]").strip.to_f
+      visit_lat = point_arr[0].delete("[").to_d
+      visit_lng = point_arr[1].delete("]").strip.to_d
       visit_point_id = VisitPoint.create(latitude: visit_lat, longitude: visit_lng, visit_place_id: visit_place_id)
       if i == visit_points.length - 1
         flash.keep[:visit_place_id] = visit_point_id.visit_place_id
