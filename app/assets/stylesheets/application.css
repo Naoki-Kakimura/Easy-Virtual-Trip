@@ -13,9 +13,3 @@
  *= require_tree .
  *= require_self
  */
-#particles-js{
-  height: 100vh;
-  width: 100vw;
-  background-color: #000000;
-
-}
