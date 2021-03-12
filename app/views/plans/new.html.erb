@@ -1,9 +1,59 @@
-<%= @city_name%>
-<% @image_url.each do |url|%>
-  <%=image_tag url%>
-<%end%>
-<%=form_with model:@plan do |f|%>
-  <%=f.hidden_field :name, :value => @city_name%>
-  <%=f.submit "#{@city_name}で決定"%>
-<%end%>
-<%= link_to "もう一度選ぶ", new_plan_path %>
+<div class="main-wrapper">
+  <div class="top-contents">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+          <!-- 各スライド -->
+          <% @image_url.each do |url|%>
+            <div class="swiper-slide" data-test-set="test" style="background-image:url(<%=url%>)">
+              <%=image_tag url, class:"entity-img"%>
+            </div>
+          <%end%>
+      </div>
+      <!-- ページネーションを表示する場合 -->
+      <div class="swiper-pagination"></div>
+
+      <!-- 前後スライドへのナビゲーションボタン(矢印)を表示する場合 -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+
+      <!-- スクロールバーを表示する場合 -->
+      <div class="swiper-scrollbar"></div>
+    </div>
+  </div>
+
+
+
+
+  <div class="bottom-contents">
+    <div class="city-name">
+      <h2 class="city-name-text"><%= @city_name%></h2>
+    </div>
+    <div class="button-contents">
+      <div class="again">
+        <%= link_to("もう一度選ぶ", new_plan_path ,{class:"btn-border btn"})%>
+      </div>
+      <div class="send-contents">
+        <%=form_with model:@plan do |f|%>
+          <%=f.hidden_field :name, :value => @city_name%>
+          <a class="btn btn-border" id="submit-wrap"><%=f.submit "#{@city_name}で決定",id:"submit"%></a>
+        <%end%>
+      </div>
+      <div class="wearher">
+        <a class="btn btn-border">天気を見る</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js"></script>
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'plan/new' %>
+<% end %>
+<%= javascript_pack_tag 'plan/application' %>
+<script>
+  let client_w = document.getElementById('submit-wrap').clientWidth;
+  let client_h = document.getElementById('submit-wrap').clientHeight;
+  let submit = document.getElementById('submit');
+  submit.style.display = "inline-block";
+  submit.style.width = `${client_w}px`;
+  submit.style.height = `${client_h}px`;
+</script>
