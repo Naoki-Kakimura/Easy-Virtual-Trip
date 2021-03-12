@@ -165,7 +165,7 @@
   align-items: center;
   padding-top: 10px;
 }
-.btn{
+.btn2{
   font-size: 20px;
   font-weight: 700;
   line-height: 1.5;
@@ -186,13 +186,13 @@
   color: #212529;
   border-radius: 0.5rem;
 }
-.btn-border {
+.btn2-border {
   border-radius: 0;
   background-color: rgba(203,208,211,0.3);
 }
 
-a.btn-border:before,
-a.btn-border:after {
+a.btn2-border:before,
+a.btn2-border:after {
   position: absolute;
 
   width: 100%;
@@ -205,20 +205,21 @@ a.btn-border:after {
   background: #000;
 }
 
-a.btn-border:before {
+a.btn2-border:before {
   top: 0;
   left: 0;
 }
 
-a.btn-border:after {
+a.btn2-border:after {
   right: 0;
   bottom: 0;
 }
 
-a.btn-border:hover:before,
-a.btn-border:hover:after {
+a.btn2-border:hover:before,
+a.btn2-border:hover:after {
   width: 0;
 }
 #submit{
   background-color:rgba($color: #fff, $alpha: 0.5);
+  padding: 5px;
 }

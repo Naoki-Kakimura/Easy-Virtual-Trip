@@ -76,3 +76,12 @@ var sliderSelector = '.swiper-container',
 
 // Initialize slider
 mySwiper.init();
+
+window.onload = function() {
+  let client_w = document.getElementById('submit-wrap').clientWidth;
+  let client_h = document.getElementById('submit-wrap').clientHeight;
+  let submit = document.getElementById('submit');
+  submit.style.display = "inline-block";
+  submit.style.width = `${client_w}px`;
+  submit.style.height = `${client_h}px`;
+};
