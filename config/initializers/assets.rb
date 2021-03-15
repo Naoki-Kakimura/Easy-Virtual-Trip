@@ -16,4 +16,5 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 Rails.application.config.assets.precompile += %w( 
   plan/index.css
   plan/new.css
+  place/new.css
 )
