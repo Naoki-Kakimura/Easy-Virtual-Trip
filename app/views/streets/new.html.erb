@@ -1,5 +1,49 @@
-<%@uri.each do |u|%>
-  <div>
-    <img src=<%=u%>>
+<div class="main-wrapper">
+  <div class="link-wrap">
+    <%= link_to("トップページへ戻る", root_path ,{class:"btn2-border btn2"})%>
   </div>
+
+  <div class="photo-wrap">
+    <div class="swiper-container main-slider loading">
+      <div class="swiper-wrapper">
+
+        <%@uri.each_with_index do |u,i|%>
+          <div class="swiper-slide">
+            <figure class="slide-bgimg" style="background-image:url(<%=u%>)">
+              <img src=<%=u%> class="entity-img" />
+            </figure>
+            <div class="content">
+              <p class="title"><%=@latlng[i]%></p>
+              <span class="caption">実際のストリートビューは上記の緯度経度を参考にgoogle mapよりご覧ください</span>
+            </div>
+          </div>
+        <% end %>
+
+      </div>
+
+      <div class="swiper-button-prev swiper-button-white"></div>
+      <div class="swiper-button-next swiper-button-white"></div>
+    </div>
+
+    <div class="swiper-container nav-slider loading">
+      <div class="swiper-wrapper" role="navigation">
+        <%@uri.each do |u|%>
+          <div class="swiper-slide">
+            <figure class="slide-bgimg" style="background-image:url(<%=u%>)">
+              <img src=<%=u%> class="entity-img" />
+            </figure>
+            <div class="content">
+              <p class="title"></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js"></script>
+
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'street/new' %>
 <% end %>
+<%= javascript_pack_tag 'street/application' %>

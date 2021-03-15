@@ -17,4 +17,5 @@ Rails.application.config.assets.precompile += %w(
   plan/index.css
   plan/new.css
   place/new.css
+  street/new.css
 )

@@ -13,6 +13,14 @@
     </div>
   </div>
 </div>
+<script>
+  if (window.name != "any") {
+    location.reload();
+    window.name = "any";
+  } else {
+    window.name = "";
+  }
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
 <%= javascript_pack_tag 'top/application' %>
 <% content_for :css do %>

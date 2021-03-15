@@ -1,6 +1,6 @@
 class PlansController < ApplicationController
   def index
-
+    Rails.cache.clear
   end
   def new
     require 'securerandom'

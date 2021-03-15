@@ -76,7 +76,6 @@ var sliderSelector = '.swiper-container',
 
 // Initialize slider
 mySwiper.init();
-
 window.onload = function() {
   let client_w = document.getElementById('submit-wrap').clientWidth;
   let client_h = document.getElementById('submit-wrap').clientHeight;
