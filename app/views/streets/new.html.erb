@@ -2,6 +2,11 @@
   <div class="link-wrap">
     <%= link_to("トップページへ戻る", root_path ,{class:"btn2-border btn2"})%>
   </div>
+  <div class="weather-wrap">
+    <h3>現地の天気（現在）</h3>
+    <h4><%=@weather%></h4>
+    <h4><%=@temp%>度</h4>
+  </div>
 
   <div class="photo-wrap">
     <div class="swiper-container main-slider loading">

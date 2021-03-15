@@ -23,9 +23,14 @@
   height: 100vh;
 }
 .link-wrap{
-  height: 20vh;
+  height: 10vh;
   text-align: center;
   display: flex;
+}
+.weather-wrap{
+  height: 10vh;
+  text-align: center;
+  color: #fff;
 }
 
 .btn2{
@@ -175,7 +180,7 @@ a.btn2-border:hover:after {
       line-height:1.4;
       transform:translateX(50px);
       opacity:0;
-      transition:opacity .3s ease, transform .7s ease;
+      transition:opacity 1s ease, transform 0.5s ease;
       &.show{
         transform:translateX(0);
         opacity:1;

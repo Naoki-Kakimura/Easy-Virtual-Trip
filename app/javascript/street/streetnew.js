@@ -6,9 +6,9 @@ let mainSliderSelector = '.main-slider',
 // Main Slider
 let mainSliderOptions = {
       loop: true,
-      speed:1000,
+      speed:4000,
       autoplay:{
-        delay:3000
+        delay:5000
       },
       loopAdditionalSlides: 10,
       grabCursor: true,
@@ -39,7 +39,6 @@ let mainSliderOptions = {
             let slideProgress = swiper.slides[i].progress,
                 innerOffset = swiper.width * interleaveOffset,
                 innerTranslate = slideProgress * innerOffset;
-           
             swiper.slides[i].querySelector(".slide-bgimg").style.transform =
               "translateX(" + innerTranslate + "px)";
           }

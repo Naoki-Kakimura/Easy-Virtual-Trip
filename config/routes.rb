@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources :plans, only:[:index,:new,:create]
   resources :maps, only:[:new,:create]
   resources :streets, only:[:new,:create]
+  resources :weathers, only:[:index]
 end

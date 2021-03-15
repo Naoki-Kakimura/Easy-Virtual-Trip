@@ -2,21 +2,17 @@
   <div class="top-contents">
     <div class="swiper-container">
       <div class="swiper-wrapper">
-          <!-- 各スライド -->
           <% @image_url.each do |url|%>
             <div class="swiper-slide" data-test-set="test" style="background-image:url(<%=url%>)">
               <%=image_tag url, class:"entity-img"%>
             </div>
           <%end%>
       </div>
-      <!-- ページネーションを表示する場合 -->
       <div class="swiper-pagination"></div>
 
-      <!-- 前後スライドへのナビゲーションボタン(矢印)を表示する場合 -->
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
 
-      <!-- スクロールバーを表示する場合 -->
       <div class="swiper-scrollbar"></div>
     </div>
   </div>
@@ -37,9 +33,6 @@
           <%=f.hidden_field :name, :value => @city_name%>
           <a class="btn2 btn2-border" id="submit-wrap"><%=f.submit "#{@city_name}で決定",id:"submit"%></a>
         <%end%>
-      </div>
-      <div class="wearher">
-        <a class="btn2 btn2-border">天気を見る</a>
       </div>
     </div>
   </div>
