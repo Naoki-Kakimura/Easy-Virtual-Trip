@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: Easy_Virtual_Trip_production
-  username: Easy_Virtual_Trip
-  password: <%= ENV['EASY_VIRTUAL_TRIP_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
