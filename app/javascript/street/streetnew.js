@@ -1,9 +1,7 @@
-// Params
 let mainSliderSelector = '.main-slider',
     navSliderSelector = '.nav-slider',
     interleaveOffset = 0.5;
 
-// Main Slider
 let mainSliderOptions = {
       loop: true,
       speed:4000,
@@ -61,7 +59,6 @@ let mainSliderOptions = {
     };
 let mainSlider = new Swiper(mainSliderSelector, mainSliderOptions);
 
-// Navigation Slider
 let navSliderOptions = {
       loop: true,
       loopAdditionalSlides: 10,
@@ -83,6 +80,5 @@ let navSliderOptions = {
     };
 let navSlider = new Swiper(navSliderSelector, navSliderOptions);
 
-// Matching sliders
 mainSlider.controller.control = navSlider;
 navSlider.controller.control = mainSlider;

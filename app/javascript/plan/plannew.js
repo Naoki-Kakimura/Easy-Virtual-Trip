@@ -7,7 +7,7 @@ var sliderSelector = '.swiper-container',
       autoplay:{
         delay:3000
       },
-      effect: 'cube', // 'cube', 'fade', 'coverflow',
+      effect: 'cube', 
       cubeEffect: {
         shadow: true,
         slideShadows: true,
@@ -23,7 +23,7 @@ var sliderSelector = '.swiper-container',
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev'
       },
-      // Events
+      
       on: {
         init: function(){
           this.autoplay.stop();
@@ -74,7 +74,6 @@ var sliderSelector = '.swiper-container',
     },
     mySwiper = new Swiper(sliderSelector, options);
 
-// Initialize slider
 mySwiper.init();
 window.onload = function() {
   let client_w = document.getElementById('submit-wrap').clientWidth;

@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     scene = new THREE.Scene();
 
-    renderer = new THREE.CanvasRenderer({ alpha: true }); // gradient; this can be swapped for WebGLRenderer
+    renderer = new THREE.CanvasRenderer({ alpha: true }); 
     renderer.setSize( window.innerWidth, window.innerHeight );
     container.appendChild( renderer.domElement );
     
@@ -38,7 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
     );
     camera.position.z = 100;
 
-    // particles
     var PI2 = Math.PI * 2;
     var material = new THREE.SpriteCanvasMaterial({
       color: 0xffffff,
@@ -63,18 +62,16 @@ document.addEventListener('DOMContentLoaded', () => {
       geometry.vertices.push( particle.position );
     }
 
-    // lines
     var line = new THREE.Line( geometry, new THREE.LineBasicMaterial( { color: 0xffffff, opacity: 0.5 } ) );
     scene.add( line );
 
-    // mousey
     document.addEventListener( 'mousemove', onDocumentMouseMove, false );
     document.addEventListener( 'touchstart', onDocumentTouchStart, false );
     document.addEventListener( 'touchmove', onDocumentTouchMove, false );
     
     window.addEventListener( 'resize', onWindowResize, false );
 
-  } // end init();
+  } 
 
   function onWindowResize() {
 
